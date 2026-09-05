@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <section class="hero">
+            <div>
+                <h1>Password Strength Analyzer</h1>
+
+                <p class="subtitle">
+                    Evaluate password strength, understand security weaknesses,
+                    generate stronger alternatives, and check local password reuse.
+                </p>
+            </div>
+
+            <div class="shield">🛡️</div>
+        </section>
+
+
+        <section class="card">
+
+            <label for="password">Enter a password</label>
+
+            <div class="password-row">
+
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="Type a password to analyze..."
+                >
+
+                <button
+                    id="toggleBtn"
+                    class="secondary"
+                    type="button">
+                    Show
+                </button>
+
+            </div>
+
+
+            <div class="meter">
+                <div id="meterFill"></div>
+            </div>
+
+
+            <div class="score-line">
+
+                <span id="rating">
+                    Enter a password
+                </span>
+
+                <span id="score">
+                    0/100
+                </span>
+
+            </div>
+
+
+            <div class="actions">
+
+                <button
+                    id="generateBtn"
+                    type="button">
+                    Generate Strong Password
+                </button>
+
+                <button
+                    id="historyBtn"
+                    class="secondary"
+                    type="button">
+                    Check Reuse
+                </button>
+
+                <button
+                    id="saveBtn"
+                    class="secondary"
+                    type="button">
+                    Save to Local History
+                </button>
+
+            </div>
+
+
+            <p id="status" class="status"></p>
+
+        </section>
+
+
+
+        <section class="grid">
+
+            <div class="card">
+
+                <h2>Security checks</h2>
+
+                <div id="checks" class="checks"></div>
+
+                <p class="note">
+                    The analyzer checks length, character variety,
+                    common passwords, repetition and predictable sequences.
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <h2>Recommendations</h2>
+
+                <ul id="suggestions" class="suggestions">
+
+                    <li>
+                        Enter a password to see personalized recommendations.
+                    </li>
+
+                </ul>
+
+
+                <div class="entropy">
+
+                    <span>
+                        Estimated entropy
+                    </span>
+
+                    <strong id="entropy">
+                        0 bits
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="card educational">
+
+            <h2>What this project demonstrates</h2>
+
+            <div class="learning-grid">
+
+                <div>
+                    <b>🔐 Password security</b>
+
+                    <span>
+                        Length, complexity and uniqueness checks.
+                    </span>
+                </div>
+
+
+                <div>
+                    <b>🧠 Basic cryptography</b>
+
+                    <span>
+                        Local SHA-256 hashing for history comparison.
+                    </span>
+                </div>
+
+
+                <div>
+                    <b>🎲 Secure generation</b>
+
+                    <span>
+                        Python's secrets module creates random alternatives.
+                    </span>
+                </div>
+
+
+                <div>
+                    <b>🗄️ Database</b>
+
+                    <span>
+                        SQLite stores only password hashes,
+                        not plaintext passwords.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
